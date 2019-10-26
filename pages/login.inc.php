@@ -42,15 +42,9 @@ if ($_POST) {
 
 ?>
 <script language="JavaScript">
-function initPage()
-{
-	setFocus();
-}
-
-function setFocus()
-{
-	document.getElementById('username').focus();
-}
+$(document).ready(function() {
+	$('#username').focus();
+});
 
 function clickedLogin()
 {
@@ -59,9 +53,8 @@ function clickedLogin()
 
 function clickedCancel()
 {
-	document.location = 'index.php';
+	document.location = '?page=';
 }
-
 </script>
 
 <center>
