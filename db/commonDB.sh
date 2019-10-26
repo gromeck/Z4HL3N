@@ -1,5 +1,5 @@
 #!/bin/bash
 
-DBNAME="Silvester"
-DBUSER="Silvester"
-DBPASS="Silvester"
+DBNAME="Z4HL3N"
+DBUSER="Z4HL3N"
+DBPASS="Z4HL3N"
