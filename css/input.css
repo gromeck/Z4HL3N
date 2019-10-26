@@ -3,13 +3,13 @@ input, select {
 	font-weight:normal;
 	cursor:pointer;
 
-	border:0.1rem solid #c0c0c0;
-	background:#d0d0d0;
+	border:0.1rem solid #0a2129;
+	background:#cceaf5;
 	padding:0.25rem;
 	margin:0.25rem;
 	-moz-border-radius:0.25rem 0.25rem 0.25rem 0.25rem;
 	border-radius:0.25rem 0.25rem 0.25rem 0.25rem;
 	box-shadow: rgba(0,0,0,0.2) 0.1rem 0.1rem 0.2rem, inset rgba(255,255,255,0.7) 0 0 0.4rem;
-	color:#606060;
+	color:#0a2129;
 }
 

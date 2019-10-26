@@ -155,6 +155,7 @@ td {
 	right:0;
 	//background-color:#000000;
 	//box-shadow:0px 8px #000000;
+	margin-bottom:4rem;
 }
 
 .logo {
@@ -198,7 +199,6 @@ td {
 	left:33%;
 	width:33%;
 	text-align:center;
-	font-style:italic;
 	font-size:2.0rem;
 	font-weight:bold;
 	color:#f0f0f0;
@@ -213,101 +213,16 @@ td {
 }
 
 
-/*
-**	player board
-*/
-.table-player-board {
-	font-size:1.5rem;
-	font-weight:bold;
-	border-spacing: 0rem 0.2rem;
-	border-collapse: separate;
-	margin:0.5rem;
-}
-.table-player-board td {
-	padding:0.2rem;
-	padding-left:0.3rem;
-	padding-right:0.3rem;
-}
-.table-player-board td {
-	-ms-transform: skewX(-15deg); /* IE 9 */
-	-webkit-transform: skewX(-15deg); /* Safari */
-	transform: skewX(-15deg); /* Standard syntax */
-}
-.table-player-board .table-player-board-header td {
-	background:#000000;
-	padding-left:0.3rem;
-	padding-right:0.3rem;
-}
-.table-player-board .table-player-board-row-even td {
-	background-color:rgba(100,100,100,0.3);
-}
-.table-player-board .table-player-board-row-odd td {
-	background-color:rgba(100,100,100,0.6);
-}
-
-.table-player-board-Platz, .table-player-board-Joker, .table-player-board-Punkte {
-	text-align:center;
-}
-
-
-/*
-**	game board
-*/
-.table-game-board {
-	font-size:1.0rem;
-	font-weight:bold;
-	border-spacing: 0rem 0.1rem;
-	border-collapse: separate;
-	margin:0.5rem;
-}
-.table-game-board td {
-	padding:0.2rem;
-	padding-left:1.0rem;
-	padding-right:1.0rem;
-}
-.table-game-board td {
-	-ms-transform: skewX(-15deg); /* IE 9 */
-	-webkit-transform: skewX(-15deg); /* Safari */
-	transform: skewX(-15deg); /* Standard syntax */
-}
-.table-game-board .table-game-board-header td {
-	background:#000000;
-	padding:0.2rem;
-	padding-left:1.0rem;
-	padding-right:1.0rem;
-}
-.table-game-board .table-game-board-row-even td {
-	background-color:rgba(100,100,100,0.3);
-}
-.table-game-board .table-game-board-row-odd td {
-	background-color:rgba(100,100,100,0.6);
-}
-
-.table-game-board-Nummer {
-	text-align:center;
-}
-
-.game-joker, .game-point {
-	color:#000000;
-	background:#f0f0f0;
-	border:0.1rem solid #000000;
-	border-radius: 50%;
-	padding-left:0.40rem;
-	padding-right:0.40rem;
-	margin-left:0.1rem;
-	margin-right:0.1rem;
-	opacity:0.2;
-	cursor:pointer;
-}
-.game-joker-highlight, .game-point-highlight {
-	opacity:0.7;
-}
-.game-joker:hover, .game-point:hover {
-	opacity:1.0;
-}
-
 .clock {
 	font-size:1.2em;
 	font-weight:bold;
 	color:#f0f0f0;
+}
+
+.intro {
+	font-size:1.5em;
+	line-height:1.2em;
+	padding:3rem;
+	padding-top:1rem;
+	padding-bottom:1rem;
 }
