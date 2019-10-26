@@ -168,7 +168,6 @@ function clicked()
 			$('#solve-text').html('<font color=red>Du hast <b>' + _score + '</b> Zahlen korrekt geschrieben.</font>');
 			$('#number-solution-field').css('visibility','hidden');
 			$('#number-input-field').css('visibility','hidden');
-			$('#solve-button').focus();
 			_state = 'reload';
 			break;
 		case 'reload':
