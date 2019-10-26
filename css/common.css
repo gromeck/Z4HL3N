@@ -1,0 +1,306 @@
+html {
+	font-family:Arial,Sans-Serif,Helvetica;
+	font-size:32px;
+}
+
+@media (min-width:600px){
+	html { font-size:16px; }
+}
+@media (min-width:900px){
+	html { font-size:24px; }
+}
+@media (min-width:1200px){
+	html { font-size:28px; }
+}
+@media (min-width:1500px){
+	html { font-size:32px; }
+}
+
+body, div, table, tr, td {
+	padding:0;
+	border:0;
+	margin:0;
+}
+body {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ea6302+0,840103+100 */
+	background: #ea6302; /* Old browsers */
+	background: -moz-linear-gradient(-45deg, #ea6302 0%, #840103 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(-45deg, #ea6302 0%,#840103 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(135deg, #ea6302 0%,#840103 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ea6302', endColorstr='#840103',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+	/* don't now why, but it helps in FF56+ */
+	border-top: 1px solid #000000; 
+	color:#f0f0f0;
+}
+
+a:link { color:white; text-decoration:none; }
+a:visited { color:white; text-decoration:none; }
+a:focus { color:white; text-decoration:underline; }
+a:hover { color:white; text-decoration:underline; }
+a:active { color:white; text-decoration:underline; }
+
+ul, ol {
+	margin:0;
+}
+
+td {
+	padding:0.1rem;
+	padding-left:0.3rem;
+	padding-right:0.3rem;
+}
+
+.tr-head, .td-head {
+	background:#000000;
+	color:#ffffff;
+}
+.tr-col-separator {
+	background:#ffffff;
+	color:#00ff00;
+}
+.tr-subhead {
+	background:#404040;
+	color:#ffffff;
+}
+.tr-odd {
+	background:#f0f0f0;
+}
+.tr-even {
+	background:#e0e0e0;
+}
+
+.separator {
+	padding:0.3rem;
+	border:0;
+	margin:0;
+}
+
+.adminfooter {
+	position: fixed;
+	left:0;
+	right:0;
+	bottom:0;
+
+	z-index:100;
+	text-align:center;
+	padding:0.3rem;
+	border:0;
+	background:#c0c0c0;
+}
+
+.message {
+	display: inline-block;
+	margin-top:0.25rem;
+	margin-bottom:0.25rem;
+	padding:0.25rem;
+	-moz-border-radius: 0.25rem;
+	-webkit-border-radius: 0.25rem;
+	border-radius: 0.25rem;
+	background:#f0f0f0;
+	box-shadow:0.1rem 0.1rem 0.2rem #a0a0a0;
+}
+.message_ok {
+	background:#c0ffc0;
+	border:0.1rem solid #00a000;
+}
+.message_info {
+	background:#c0c0ff;
+	border:0.1rem solid #0000a0;
+}
+.message_fail {
+	background:#ffc0c0;
+	border:0.1rem solid #a00000;
+}
+
+.bigtext {
+	font-size:1.5rem;
+	font-weight:bold;
+	color:#f0f0f0;
+//	color:#303030;
+}
+
+.biggertext {
+	font-size:2.0rem;
+	font-weight:900;
+	color:#f0f0f0;
+}
+
+.biggesttext {
+	font-size:2.5rem;
+	font-weight:bold;
+	color:#f0f0f0;
+//	color:#303030;
+}
+
+.bigtextwhite {
+	font-weight:bold;
+	color:#ffffff;
+}
+
+.header {
+	position:absolute;
+	padding:0;
+	border:0;
+	margin:0;
+	height:5rem;
+	top:0;
+	left:0;
+	right:0;
+	//background-color:#000000;
+	//box-shadow:0px 8px #000000;
+}
+
+.logo {
+	//width:325px;
+	//height:125px;
+	height:4rem;
+	cursor:pointer;
+}
+
+.page {
+	position:absolute;
+	padding:0;
+	border:0;
+	margin:0;
+	top:5rem;
+	left:0;
+	z-index:3;
+	width:100%;
+	height:100%-4rem;
+	text-align:center;
+}
+
+.pagetitle {
+	top:0;
+	height:0.5rem;
+	left:0;
+	right:0;
+	text-align:center;
+	color:#f0f0f0;
+	font-weight:bold;
+	font-size:0.5rem;
+}
+.header-left {
+	position:absolute;
+	left:0.3rem;
+	width:33%;
+	text-align:left;
+}
+.header-center {
+	position:absolute;
+	left:33%;
+	width:33%;
+	text-align:center;
+	font-style:italic;
+	font-size:2.0rem;
+	font-weight:bold;
+	color:#f0f0f0;
+	padding-top:1rem;
+}
+.header-right {
+	position:absolute;
+	width:33%;
+	right:0.2rem;
+	text-align:right;
+	color:#d0d0d0;
+}
+
+
+/*
+**	player board
+*/
+.table-player-board {
+	font-size:1.5rem;
+	font-weight:bold;
+	border-spacing: 0rem 0.2rem;
+	border-collapse: separate;
+	margin:0.5rem;
+}
+.table-player-board td {
+	padding:0.2rem;
+	padding-left:0.3rem;
+	padding-right:0.3rem;
+}
+.table-player-board td {
+	-ms-transform: skewX(-15deg); /* IE 9 */
+	-webkit-transform: skewX(-15deg); /* Safari */
+	transform: skewX(-15deg); /* Standard syntax */
+}
+.table-player-board .table-player-board-header td {
+	background:#000000;
+	padding-left:0.3rem;
+	padding-right:0.3rem;
+}
+.table-player-board .table-player-board-row-even td {
+	background-color:rgba(100,100,100,0.3);
+}
+.table-player-board .table-player-board-row-odd td {
+	background-color:rgba(100,100,100,0.6);
+}
+
+.table-player-board-Platz, .table-player-board-Joker, .table-player-board-Punkte {
+	text-align:center;
+}
+
+
+/*
+**	game board
+*/
+.table-game-board {
+	font-size:1.0rem;
+	font-weight:bold;
+	border-spacing: 0rem 0.1rem;
+	border-collapse: separate;
+	margin:0.5rem;
+}
+.table-game-board td {
+	padding:0.2rem;
+	padding-left:1.0rem;
+	padding-right:1.0rem;
+}
+.table-game-board td {
+	-ms-transform: skewX(-15deg); /* IE 9 */
+	-webkit-transform: skewX(-15deg); /* Safari */
+	transform: skewX(-15deg); /* Standard syntax */
+}
+.table-game-board .table-game-board-header td {
+	background:#000000;
+	padding:0.2rem;
+	padding-left:1.0rem;
+	padding-right:1.0rem;
+}
+.table-game-board .table-game-board-row-even td {
+	background-color:rgba(100,100,100,0.3);
+}
+.table-game-board .table-game-board-row-odd td {
+	background-color:rgba(100,100,100,0.6);
+}
+
+.table-game-board-Nummer {
+	text-align:center;
+}
+
+.game-joker, .game-point {
+	color:#000000;
+	background:#f0f0f0;
+	border:0.1rem solid #000000;
+	border-radius: 50%;
+	padding-left:0.40rem;
+	padding-right:0.40rem;
+	margin-left:0.1rem;
+	margin-right:0.1rem;
+	opacity:0.2;
+	cursor:pointer;
+}
+.game-joker-highlight, .game-point-highlight {
+	opacity:0.7;
+}
+.game-joker:hover, .game-point:hover {
+	opacity:1.0;
+}
+
+.clock {
+	font-size:1.2em;
+	font-weight:bold;
+	color:#f0f0f0;
+}

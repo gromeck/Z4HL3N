@@ -1,0 +1,36 @@
+.button {
+	border:0.07rem solid #c0c0c0;
+	background:#f0f0f0;
+	padding:0.25rem;
+	margin:0.25rem;
+	-moz-border-radius:0.25rem 0.25rem 0.25rem 0.25rem;
+	border-radius:0.25rem 0.25rem 0.25rem 0.25rem;
+	box-shadow: rgba(0,0,0,0.2) 2px 3px 4px, inset rgba(255,255,255,0.7) 0 0 5px;
+	color:#202020;
+	font-size:1.2rem;
+	font-weight:bold;
+	cursor:pointer;
+	display:inline-block;
+}
+
+.button-small {
+	border:0.1rem solid #c0c0c0;
+	background:#f0f0f0;
+	margin:0.1rem;
+	padding:0.1rem;
+	padding-left:0.5rem;
+	padding-right:0.5rem;
+	-moz-border-radius:0.2rem 0.2rem 0.2rem 0.2rem;
+	border-radius:0.2rem 0.2rem 0.2rem 0.2rem;
+	box-shadow: rgba(0,0,0,0.2) 0.2rem 0.2rem 0.2rem, inset rgba(255,255,255,0.7) 0 0 0.2rem;
+	color:#202020;
+	font-size:0.6rem;
+	font-weight:bold;
+	cursor:pointer;
+	display:inline-block;
+}
+
+a.button, a.button-small {
+	color:#202020;
+}
+
