@@ -20,10 +20,10 @@ include_once 'inc/numbers.inc.php';
 **	the available pages
 */
 $pages = array(
-	'index' =>		   		array( 'title' => 'Zahlen schreiben',	'show' => 1, 'admin' => 1, 'separator' => 0 ),
+	'index' =>		   		array( 'title' => '',		'show' => 1, 'admin' => 1, 'separator' => 0 ),
 	'login' =>		   		array( 'title' => 'Login',				'show' => 0, 'admin' => 0, 'separator' => 0 ),
 	'admin-settings' =>	   	array( 'title' => 'Einstellungen',		'show' => 1, 'admin' => 1, 'separator' => 0 ),
-	'play' =>				array( 'title' => 'Zahlen schreiben',	'show' => 1, 'admin' => 0, 'separator' => 0, 'button' => 'Los geht\'s!', ),
+	'play' =>				array( 'title' => '',	'show' => 1, 'admin' => 0, 'separator' => 0, 'button' => 'Los geht\'s!', ),
 );
 
 /*
