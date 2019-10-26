@@ -1,6 +1,8 @@
 html {
 	font-family:Arial,Sans-Serif,Helvetica;
 	font-size:32px;
+	background:#0a2129;
+	color:#cceaf5;
 }
 
 @media (min-width:600px){
@@ -21,17 +23,22 @@ body, div, table, tr, td {
 	border:0;
 	margin:0;
 }
-body {
-	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ea6302+0,840103+100 */
-	background: #ea6302; /* Old browsers */
-	background: -moz-linear-gradient(-45deg, #ea6302 0%, #840103 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(-45deg, #ea6302 0%,#840103 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(135deg, #ea6302 0%,#840103 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ea6302', endColorstr='#840103',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
-	/* don't now why, but it helps in FF56+ */
-	border-top: 1px solid #000000; 
-	color:#f0f0f0;
+#background {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+	background: url(../images/background-numbers.jpg) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+
+	opacity: 0.20;
+	filter:alpha(opacity=20);
 }
 
 a:link { color:white; text-decoration:none; }
@@ -153,7 +160,7 @@ td {
 .logo {
 	//width:325px;
 	//height:125px;
-	height:4rem;
+	height:3rem;
 	cursor:pointer;
 }
 
