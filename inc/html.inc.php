@@ -68,7 +68,7 @@ function html_header($page,$title)
 <div id="background"></div>
 <div class="header">
 	<div class="header-left">
-		<img class="logo" src="images/Z4HL3N.svg" onclick="document.location='?page=index';" border=0>
+		<img class="logo" src="images/Z4HL3N.svg" onclick="document.location='?page=';" border=0>
 	</div>
 	<div class="header-right"><?php
 		if (@$_SESSION['User'] && @$_SESSION['User']['Uid']) {
@@ -76,10 +76,10 @@ function html_header($page,$title)
 				if (ADMIN) {
 					print ' (Admin)';
 				}
-			?> <a href="index.php?page=login&type=logout" tabindex=-1>Abmelden</a><?php
+			?> <a href="?page=login&type=logout" tabindex=-1>Abmelden</a><?php
 		}
 		else {
-			?><a href="index.php?page=login" tabindex=-1>Anmelden</a><?php
+			?><a href="?page=login" tabindex=-1>Anmelden</a><?php
 		}
 		?>
 		<div class="clock" id="clock"></div>

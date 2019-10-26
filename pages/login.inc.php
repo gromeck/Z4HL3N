@@ -11,7 +11,7 @@ if ($_GET) {
 		unset($_SESSION['User']);
 		?>
 		<script>
-		document.location = 'index.php';
+		document.location = '?page=';
 		</script>
 		<?php
 		return;
@@ -29,7 +29,7 @@ if ($_POST) {
 		$_SESSION['User'] = $user;
 		?>
 		<script>
-		document.location = 'index.php';
+		document.location = '?page=';
 		</script>
 		<?php
 		return;
