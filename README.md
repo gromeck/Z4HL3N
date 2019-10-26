@@ -4,6 +4,10 @@ Jeder korrekte Versuch wird gezählt.
 Wieviele Zahlen schaffst du in 600 Sekunden?
 Viel Spaß!
 
+<img src=images/screenshot.png>
+
 # Z4HL3N
-... ist in PHP implementiert
-... verwendet MySQL für die Einstellungen
+<ul>
+<li>ist in PHP implementiert
+<li>verwendet MySQL für die Einstellungen
+</ul>
