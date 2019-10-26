@@ -4,12 +4,6 @@
 **
 **	Christian Lorenz
 */
-define('COLWIDTH',550);
-define('FONTSIZE',4);
-define('FONTSIZEPX',40);
-define('MAX_PLAYERS',100);
-define('TITLE',__TITLE__);
-define('IMAGE_BACKGROUND','images/Silvester-bg.png');
 
 /*
 **	start a session if not in CLI mode
