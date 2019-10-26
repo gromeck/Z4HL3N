@@ -43,6 +43,7 @@ function html_header($page,$title)
 <link href="css/common.css" rel="stylesheet" type="text/css">
 <link href="css/button.css" rel="stylesheet" type="text/css">
 <link href="css/input.css" rel="stylesheet" type="text/css">
+<link href="css/numbers.css" rel="stylesheet" type="text/css">
 <script language="JavaScript" src="3rdparty/jquery/jquery.min.js"></script>
 <script language="JavaScript" type="text/javascript">
 <!--
@@ -64,9 +65,10 @@ function html_header($page,$title)
 </script>
 </head>
 <body onload="initPage()">
+<div id="background"></div>
 <div class="header">
 	<div class="header-left">
-		<img class="logo" src="images/DiePerfekteMinute.png" onclick="document.location='?page=index';" border=0>
+		<img class="logo" src="images/Z4HL3N.svg" onclick="document.location='?page=index';" border=0>
 	</div>
 	<div class="header-right"><?php
 		if (@$_SESSION['User'] && @$_SESSION['User']['Uid']) {
