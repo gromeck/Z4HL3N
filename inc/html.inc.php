@@ -39,7 +39,7 @@ function html_header($page,$title)
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, user-scalable=no" />
 <link rel="SHORTCUT ICON" href="favicon.ico" title="external:favicon.ico">
-<title><?php print TITLE ?></title>
+<title><?php print __TITLE__ ?></title>
 <link href="css/common.css" rel="stylesheet" type="text/css">
 <link href="css/button.css" rel="stylesheet" type="text/css">
 <link href="css/input.css" rel="stylesheet" type="text/css">
@@ -64,7 +64,7 @@ function html_header($page,$title)
 -->
 </script>
 </head>
-<body onload="initPage()">
+<body>
 <div id="background"></div>
 <div class="header">
 	<div class="header-left">
