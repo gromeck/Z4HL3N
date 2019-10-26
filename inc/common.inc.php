@@ -1,12 +1,6 @@
 <?php
 /*
-**	a quick hack for the
-**
-**		1. Goddelauer Badminton Nachturnier
-**		2. Goddelauer Badminton Nachturnier
-**		3. Goddelauer Badminton Nachturnier
-**		4. Goddelauer Badminton Nachturnier
-**
+**	common function
 **
 **	Christian Lorenz
 */
@@ -33,11 +27,3 @@ if (!defined('ADMIN'))
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL & ~E_NOTICE);
-
-function print_player($player,$no_grey_out = 0,$pid_highlight = 0)
-{
-	global $_SERVER;
-
-	print '<span class="player" onClick="clickedPlayer('.$player['Pid'].')">'.str_replace(' ','&nbsp;',$player['Nick']).'</span>';
-}
-
