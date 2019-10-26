@@ -4,7 +4,7 @@
 */
 ?>
 <div class=intro>
-	<?php print __TITLE__ ?> ist ein einfachs Spiel, bei dem ausgeschriebene Zahlen
+	<?php print __TITLE__ ?> ist ein einfaches Spiel, bei dem ausgeschriebene Zahlen
 	vorgegeben werden, die der Spieler ziffernweise eingeben muss.
 	<p>
 	Jeder korrekte Versuch wird gezählt.
