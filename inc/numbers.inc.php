@@ -3,7 +3,7 @@
 **	long numbers
 **
 */
-include '../3rdparty/zahl-in-zahlwort-umwandeln.inc.php';
+include '3rdparty/zahl-in-zahlwort-umwandeln.inc.php';
 
 class Numbers {
 	/*
@@ -39,7 +39,7 @@ class Numbers {
 	**	e. repeat shuffling until a non-zero is the first digit
 	**	f. convert to (int)
 	*/
-	public function getNumber()
+	public static function getNumber()
 	{
 		$a = substr(str_shuffle('123456789'),0,rand(1,5));
 		$len = rand(2,6);
@@ -56,21 +56,23 @@ class Numbers {
 	}
 
 	/*
-	**	generate an array of numbers
+	**	convert a number into text
 	*/
-	public function getNumbers($n)
+	public static function getNumberText($number)
 	{
-		$numbers = array();
-		while ($n-- > 0)
-			$numbers[] = self::getNumber();
-		return $numbers;
+		return preg_replace('/ /','',strtolower(num2text($number)));
 	}
 
 	/*
-	**	convert a number into text
+	**	generate an array of numbers and their texts
 	*/
-	public function getNumberText($number)
+	public static function getNumbers($n)
 	{
-		return num2text($number);
+		$numbers = array();
+		while ($n-- > 0) {
+			$number = self::getNumber();
+			$numbers[] = array( 'number' => $number, 'text' => self::getNumberText($number) );
+		}
+		return $numbers;
 	}
 }
