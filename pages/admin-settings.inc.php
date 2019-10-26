@@ -32,13 +32,9 @@ if ($_POST) {
 
 ?>
 <script language="JavaScript">
-function initPage()
-{
-	setFocus();
-}
-function setFocus()
-{
-}
+$( document ).ready(function() {
+	$('#username').focus();
+});
 
 function clickedSubmit()
 {
@@ -47,7 +43,7 @@ function clickedSubmit()
 
 function clickedCancel()
 {
-	document.location = 'index.php?page=index';
+	document.location = '?page=';
 }
 
 <?php if ($infomsg) { ?>
