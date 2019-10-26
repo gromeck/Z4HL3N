@@ -14,16 +14,16 @@ include_once 'inc/common.inc.php';
 include_once 'inc/html.inc.php';
 include_once 'inc/util.inc.php';
 include_once 'inc/database.inc.php';
+include_once 'inc/numbers.inc.php';
 
 /*
 **	the available pages
 */
 $pages = array(
-	'index' =>		   		array( 'title' => 'Spielstand',		'show' => 1, 'admin' => 1, 'separator' => 0 ),
-	'login' =>		   		array( 'title' => 'Login',			'show' => 0, 'admin' => 0, 'separator' => 0 ),
-	'admin-games' =>   		array( 'title' => 'Spiele',			'show' => 1, 'admin' => 1, 'separator' => 0 ),
-	'admin-settings' =>	   	array( 'title' => 'Einstellungen',	'show' => 1, 'admin' => 1, 'separator' => 0 ),
-	'admin-play-game' =>	array( 'title' => 'Spiel',			'show' => 0, 'admin' => 1, 'separator' => 0 ),
+	'index' =>		   		array( 'title' => 'Zahlen schreiben',	'show' => 1, 'admin' => 1, 'separator' => 0 ),
+	'login' =>		   		array( 'title' => 'Login',				'show' => 0, 'admin' => 0, 'separator' => 0 ),
+	'admin-settings' =>	   	array( 'title' => 'Einstellungen',		'show' => 1, 'admin' => 1, 'separator' => 0 ),
+	'play' =>				array( 'title' => 'Zahlen schreiben',	'show' => 1, 'admin' => 0, 'separator' => 0, 'button' => 'Los geht\'s!', ),
 );
 
 /*
