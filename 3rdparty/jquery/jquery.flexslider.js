@@ -1,0 +1,1 @@
+../flexslider/jquery.flexslider-min.js
