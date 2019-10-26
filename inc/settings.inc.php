@@ -9,9 +9,9 @@
 **	database access
 */
 define('DB_HOSTNAME','localhost');
-define('DB_DATABASE','Silvester');
-define('DB_USERNAME','Silvester');
-define('DB_PASSWORD','Silvester');
+define('DB_DATABASE','Z4HL3N');
+define('DB_USERNAME','Z4HL3N');
+define('DB_PASSWORD','Z4HL3N');
 include_once 'util.inc.php';
 include_once 'database.inc.php';
 
@@ -19,10 +19,8 @@ include_once 'database.inc.php';
 **	set the defaults
 */
 $settings = array(
-	array( 'Name' => 'TITLE',              'Title' => 'Titel',              'Value' => 'Die Perfekte Minute', 'Units' => '' ),
-	array( 'Name' => 'YEAR',               'Title' => 'Jahr',               'Value' => 2017, 'Units' => '' ),
-	array( 'Name' => 'JOKERS_PER_PLAYER',  'Title' => 'Joker pro Spieler',	'Value' => '3',  'Units' => '' ),
-	array( 'Name' => 'POINTS_PER_GAME',	   'Title' => 'Punkte pro Spiel',	'Value' => '3',  'Units' => '' ),
+	array( 'Name' => 'TITLE',         'Title' => 'Titel des Spiels',   'Value' => 'Z4HL3N', 'Units' => '' ),
+	array( 'Name' => 'TIME_TO_PLAY',  'Title' => 'Dauer des Spiels',   'Value' => 100, 'Units' => 's' ),
 );
 
 /*
