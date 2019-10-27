@@ -202,11 +202,14 @@ function clicked()
 	$('#state-score-points').text(_score + '/' + _numidx);
 }
 
+/*
+**	handle key events
+*/
 $(document).focus();
 $(document).keypress(function(event) {
 		var keycode = (event.keyCode ? event.keyCode : event.which);
 		//alert('keycode=' + keycode);
-		if (keycode == 13 && _state == 'waiting for solution')
+		if (keycode == 13 && (_state == 'waiting for solution' || _state == 'waiting to continue'))
 			clicked();
 	});
 
