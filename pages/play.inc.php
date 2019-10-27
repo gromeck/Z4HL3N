@@ -4,9 +4,9 @@
 */
 
 /*
-**	get a bunch of numbers -- 100 should be ok
+**	get a bunch of numbers --  one number per two seconds should be ok ;-)
 */
-$numbers = Numbers::getNumbers(100);
+$numbers = Numbers::getNumbers(__TIME_TO_PLAY__ / 2);
 
 /*
 **	get the aprameters
