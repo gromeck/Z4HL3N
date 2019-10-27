@@ -118,9 +118,8 @@ function clicked()
 			$('#solve-button').val('Start');
 			$('#solve-button').focus();
 			$('#number-input-field').css('visibility','hidden');
-			$("#number-input-field").inputFilter(function(value) {
-					return /^\d*$/.test(value);
-				});
+			$("#number-input-field").inputFilter(function(value) { return /^\d*$/.test(value); });
+			$("#number-input-field").prop("readonly",true);
 			_state = 'start';
 			break;
 		case 'start':
@@ -134,6 +133,7 @@ function clicked()
 			$('#number-input-field').css('visibility','visible');
 			$('#number-input-field').css('background-color',COLOR_BACKGROUND2);
 			$('#number-input-field').val('');
+			$("#number-input-field").prop("readonly",false);
 			$('#number-input-field').focus();
 			$('#solve-text').html('Gebe die richtige Zahl bestehend aus Ziffern ein und klicke <b>Lösen</b>.');
 			$('#solve-button').val('Lösen');
@@ -146,6 +146,7 @@ function clicked()
 			*/
 			timer_stop();
 			$('#number-solution-field').css('visibility','visible');
+			$("#number-input-field").prop("readonly",true);
 			if ($('#number-solution-field').val() == $('#number-input-field').val().trim()) {
 				++_score;
 				$('#number-input-field').css('background-color',COLOR_OK);
