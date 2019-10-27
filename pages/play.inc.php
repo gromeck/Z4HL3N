@@ -95,6 +95,8 @@ function timer_stop()
 */
 function timer_timeout()
 {
+	clearInterval(_timer);
+	$('#state-time-seconds').css('visibility','visible');
 	_time_left = 0;
 	timer_display();
 	_state = 'timeout';
