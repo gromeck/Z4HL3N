@@ -35,7 +35,7 @@ var _numbers = [
 <?php
 	$idx = 0;
 	foreach ($numbers as $number)
-		print '{ number: '.$number['number'].', text: "'.$number['text'].'" },'."\n";
+		print '{ number: '.$number['number'].', readable: "'.$number['readable'].'", text: "'.$number['text'].'", html: "'.$number['html'].'" },'."\n";
 ?>
 { } ];
 
@@ -111,7 +111,7 @@ function clicked()
 			_numidx = 0;
 			_score = 0;
 			timer_init(TIME_TO_PLAY);
-			$('#number-text-field').text('In diesem Feld erscheinen die ausgeschriebenen Zahlen.');
+			$('#number-text-field').html('In diesem Feld erscheinen die ausgeschriebenen Zahlen.');
 			$('#number-input-field').val('');
 			$('#number-solution-field').css('visibility','hidden');
 			$('#solve-text').html('Sobald du bereit bist, drücke <b>Start</b>.');
@@ -129,7 +129,7 @@ function clicked()
 			**	start the game
 			*/
 			$('#number-solution-field').css('visibility','hidden');
-			$('#number-text-field').text(_numbers[_numidx]['text']);
+			$('#number-text-field').html(_numbers[_numidx]['html']);
 			$('#number-solution-field').val(_numbers[_numidx]['number']);
 			$('#number-input-field').css('visibility','visible');
 			$('#number-input-field').css('background-color',COLOR_BACKGROUND2);
@@ -178,7 +178,7 @@ function clicked()
 			break;
 		default:
 			$('#solve-button').val('Neustart');
-			$('#number-text-field').text('Fehler in State Maschine: _state='._state);
+			$('#number-text-field').html('<font color=red>Fehler in State Maschine: _state=' + _state + '.</font>');
 			$('#number-solution-field').css('visibility','hidden');
 			$('#solve-button').focus();
 			_state = 'init';
