@@ -22,6 +22,7 @@ const COLOR_KO = 'red';
 var _state = "init",_score = 0,_numidx = 0;
 var _color_secs;
 var _timer;
+var _timer_stopped;
 var _time_left;
 
 const TIME_TO_PLAY = <?php print __TIME_TO_PLAY__ ?>;
@@ -49,6 +50,7 @@ $( document ).ready(function() {
 function timer_init(seconds)
 {
 	_time_left = seconds * MILLISECONDS_PER_SECOND;
+	_timer_stopped = 1;
 	timer_display();
 }
 
@@ -61,11 +63,19 @@ function timer_tick()
 	timer_display();
 }
 
+function timer_blink()
+{
+	$('#state-time-seconds').css('visibility',($('#state-time-seconds').css('visibility') == 'visible') ? 'hidden' : 'visible');
+}
+
 /*
 **	start/continue the timer
 */
 function timer_start()
 {
+	$('#state-time-seconds').css('visibility','visible');
+	_timer_stopped = 0;
+	clearInterval(_timer);
 	_timer = setInterval(timer_tick,MILLISECONDS_PER_TICK);
 }
 
@@ -74,7 +84,9 @@ function timer_start()
 */
 function timer_stop()
 {
+	_timer_stopped = 1;
 	clearInterval(_timer);
+	_timer = setInterval(timer_blink,MILLISECONDS_PER_SECOND / 2);
 	timer_display();
 }
 
