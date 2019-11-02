@@ -20,8 +20,8 @@
  */
 
 define('NUMERAL_SIGN', 'minus');
-define('NUMERAL_HUNDREDS_SUFFIX', 'hundert');
-define('NUMERAL_INFIX', 'und');
+define('NUMERAL_HUNDREDS_SUFFIX', '-hundert');
+define('NUMERAL_INFIX', '-und-');
 
 /* Die Zahlwörter von 0 bis 19. */
 $lNumeral = array('null', 'ein', 'zwei', 'drei', 'vier',

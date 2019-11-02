@@ -56,11 +56,27 @@ class Numbers {
 	}
 
 	/*
-	**	convert a number into text
+	**	convert a number into readable text
+	*/
+	public static function getNumberReadable($number)
+	{
+		return preg_replace('/-/','',strtolower(num2text($number)));
+	}
+
+	/*
+	**	convert a number into lowercase text without any blanks
 	*/
 	public static function getNumberText($number)
 	{
-		return preg_replace('/ /','',strtolower(num2text($number)));
+		return preg_replace('/[ -]/','',strtolower(num2text($number)));
+	}
+
+	/*
+	**	convert a number into lowercase text without blanks but wbr
+	*/
+	public static function getNumberHtml($number)
+	{
+		return preg_replace('/[ -]/','<wbr>',strtolower(num2text($number)));
 	}
 
 	/*
@@ -71,7 +87,12 @@ class Numbers {
 		$numbers = array();
 		while ($n-- > 0) {
 			$number = self::getNumber();
-			$numbers[] = array( 'number' => $number, 'text' => self::getNumberText($number) );
+			$numbers[] = array(
+				'number' => $number,
+				'readable' => self::getNumberReadable($number),
+				'text' => self::getNumberText($number),
+				'html' => self::getNumberHtml($number),
+			);
 		}
 		return $numbers;
 	}

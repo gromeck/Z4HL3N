@@ -4,9 +4,9 @@
 */
 
 /*
-**	get a bunch of numbers -- 100 should be ok
+**	get a bunch of numbers --  one number per two seconds should be ok ;-)
 */
-$numbers = Numbers::getNumbers(100);
+$numbers = Numbers::getNumbers(__TIME_TO_PLAY__ / 2);
 
 /*
 **	get the aprameters
@@ -22,6 +22,7 @@ const COLOR_KO = 'red';
 var _state = "init",_score = 0,_numidx = 0;
 var _color_secs;
 var _timer;
+var _timer_stopped;
 var _time_left;
 
 const TIME_TO_PLAY = <?php print __TIME_TO_PLAY__ ?>;
@@ -35,7 +36,7 @@ var _numbers = [
 <?php
 	$idx = 0;
 	foreach ($numbers as $number)
-		print '{ number: '.$number['number'].', text: "'.$number['text'].'" },'."\n";
+		print '{ number: '.$number['number'].', readable: "'.$number['readable'].'", text: "'.$number['text'].'", html: "'.$number['html'].'" },'."\n";
 ?>
 { } ];
 
@@ -49,6 +50,7 @@ $( document ).ready(function() {
 function timer_init(seconds)
 {
 	_time_left = seconds * MILLISECONDS_PER_SECOND;
+	_timer_stopped = 1;
 	timer_display();
 }
 
@@ -61,11 +63,19 @@ function timer_tick()
 	timer_display();
 }
 
+function timer_blink()
+{
+	$('#state-time-seconds').css('visibility',($('#state-time-seconds').css('visibility') == 'visible') ? 'hidden' : 'visible');
+}
+
 /*
 **	start/continue the timer
 */
 function timer_start()
 {
+	$('#state-time-seconds').css('visibility','visible');
+	_timer_stopped = 0;
+	clearInterval(_timer);
 	_timer = setInterval(timer_tick,MILLISECONDS_PER_TICK);
 }
 
@@ -74,7 +84,9 @@ function timer_start()
 */
 function timer_stop()
 {
+	_timer_stopped = 1;
 	clearInterval(_timer);
+	_timer = setInterval(timer_blink,MILLISECONDS_PER_SECOND / 2);
 	timer_display();
 }
 
@@ -83,6 +95,8 @@ function timer_stop()
 */
 function timer_timeout()
 {
+	clearInterval(_timer);
+	$('#state-time-seconds').css('visibility','visible');
 	_time_left = 0;
 	timer_display();
 	_state = 'timeout';
@@ -111,16 +125,15 @@ function clicked()
 			_numidx = 0;
 			_score = 0;
 			timer_init(TIME_TO_PLAY);
-			$('#number-text-field').text('In diesem Feld erscheinen die ausgeschriebenen Zahlen.');
+			$('#number-text-field').html('In diesem Feld erscheinen die ausgeschriebenen Zahlen.');
 			$('#number-input-field').val('');
 			$('#number-solution-field').css('visibility','hidden');
 			$('#solve-text').html('Sobald du bereit bist, drücke <b>Start</b>.');
 			$('#solve-button').val('Start');
 			$('#solve-button').focus();
 			$('#number-input-field').css('visibility','hidden');
-			$("#number-input-field").inputFilter(function(value) {
-					return /^\d*$/.test(value);
-				});
+			$("#number-input-field").inputFilter(function(value) { return /^\d*$/.test(value); });
+			$("#number-input-field").prop("readonly",true);
 			_state = 'start';
 			break;
 		case 'start':
@@ -129,11 +142,12 @@ function clicked()
 			**	start the game
 			*/
 			$('#number-solution-field').css('visibility','hidden');
-			$('#number-text-field').text(_numbers[_numidx]['text']);
+			$('#number-text-field').html(_numbers[_numidx]['html']);
 			$('#number-solution-field').val(_numbers[_numidx]['number']);
 			$('#number-input-field').css('visibility','visible');
 			$('#number-input-field').css('background-color',COLOR_BACKGROUND2);
 			$('#number-input-field').val('');
+			$("#number-input-field").prop("readonly",false);
 			$('#number-input-field').focus();
 			$('#solve-text').html('Gebe die richtige Zahl bestehend aus Ziffern ein und klicke <b>Lösen</b>.');
 			$('#solve-button').val('Lösen');
@@ -146,6 +160,7 @@ function clicked()
 			*/
 			timer_stop();
 			$('#number-solution-field').css('visibility','visible');
+			$("#number-input-field").prop("readonly",true);
 			if ($('#number-solution-field').val() == $('#number-input-field').val().trim()) {
 				++_score;
 				$('#number-input-field').css('background-color',COLOR_OK);
@@ -178,7 +193,7 @@ function clicked()
 			break;
 		default:
 			$('#solve-button').val('Neustart');
-			$('#number-text-field').text('Fehler in State Maschine: _state='._state);
+			$('#number-text-field').html('<font color=red>Fehler in State Maschine: _state=' + _state + '.</font>');
 			$('#number-solution-field').css('visibility','hidden');
 			$('#solve-button').focus();
 			_state = 'init';
@@ -187,11 +202,14 @@ function clicked()
 	$('#state-score-points').text(_score + '/' + _numidx);
 }
 
+/*
+**	handle key events
+*/
 $(document).focus();
 $(document).keypress(function(event) {
 		var keycode = (event.keyCode ? event.keyCode : event.which);
 		//alert('keycode=' + keycode);
-		if (keycode == 13 && _state == 'waiting for solution')
+		if (keycode == 13 && (_state == 'waiting for solution' || _state == 'waiting to continue'))
 			clicked();
 	});
 

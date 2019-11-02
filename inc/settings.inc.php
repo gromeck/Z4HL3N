@@ -5,6 +5,8 @@
 **	Christian Lorenz
 */
 
+define('__TITLE__','Z4HL3N');
+
 /*
 **	database access
 */
@@ -19,7 +21,6 @@ include_once 'database.inc.php';
 **	set the defaults
 */
 $settings = array(
-	array( 'Name' => 'TITLE',         'Title' => 'Titel des Spiels',   'Value' => 'Z4HL3N', 'Units' => '' ),
 	array( 'Name' => 'TIME_TO_PLAY',  'Title' => 'Dauer des Spiels',   'Value' => 100, 'Units' => 's' ),
 );
 
