@@ -68,7 +68,7 @@ function html_header($page,$title)
 <div id="background"></div>
 <div class="header">
 	<div class="header-left">
-		<img class="logo" src="images/Z4HL3N.svg" onclick="document.location='?page=';" border=0>
+		<img class="logo" src="images/Z4HL3N-flat.svg" onclick="document.location='?page=';" border=0>
 	</div>
 	<div class="header-right"><?php
 		if (@$_SESSION['User'] && @$_SESSION['User']['Uid']) {
