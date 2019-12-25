@@ -1,7 +1,7 @@
 # Z4HL3N
 Z4HL3N ist ein einfachs Spiel, bei dem ausgeschriebene Zahlen vorgegeben werden, die der Spieler ziffernweise eingeben muss.
 Jeder korrekte Versuch wird gezählt.
-Wieviele Zahlen schaffst du in 600 Sekunden?
+Wieviele Zahlen schaffst du in 60 Sekunden?
 Viel Spaß!
 
 <img src=images/screenshot.png>
