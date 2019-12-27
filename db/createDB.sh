@@ -20,19 +20,28 @@ EOF
 #
 mysql --host=localhost --user=$DBUSER --password=$DBPASS --database=$DBNAME <<EOF
 CREATE TABLE IF NOT EXISTS Settings (
-	Name varchar(100) NOT NULL default "",
-	Value varchar(1000) NOT NULL default "",
+	Name VARCHAR(100) NOT NULL DEFAULT "",
+	Value VARCHAR(1000) NOT NULL DEFAULT "",
 	PRIMARY KEY (Name)
-) COMMENT='Settings';
+) COMMENT="Settings";
 
 CREATE TABLE IF NOT EXISTS Users (
-	Uid int(5) unsigned NOT NULL auto_increment,
-	Username varchar(50) NOT NULL default "",
-	Password varchar(50) NOT NULL default "",
-	Admin int(1) NOT NULL default 0,
+	Uid INT(5) UNSIGNED NOT NULL AUTO_INCREMENT,
+	Username VARCHAR(50) NOT NULL DEFAULT "",
+	Password VARCHAR(50) NOT NULL DEFAULT "",
+	Admin INT(1) NOT NULL DEFAULT 0,
 	PRIMARY KEY (Uid),
 	UNIQUE KEY (Username)
-) COMMENT='Users';
+) COMMENT="Users";
+
+CREATE TABLE IF NOT EXISTS Scores (
+	Sid INT(5) UNSIGNED NOT NULL auto_increment,
+	Name VARCHAR(50) NOT NULL default "",
+	Numbers INT(4) NOT NULL default 0,
+	Time INT(4) NOT NULL default 0,
+	Timestamp DATETIME NOT NULL DEFAULT "0000-00-00 00:00:00",
+	PRIMARY KEY (Sid)
+) COMMENT="Scores";
 
 EOF
 
