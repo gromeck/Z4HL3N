@@ -1,6 +1,6 @@
 html {
 	font-family:Arial,Sans-Serif,Helvetica;
-	font-size:32px;
+	font-size:2rem;
 	background:#0a2129;
 	color:#cceaf5;
 }
@@ -15,7 +15,7 @@ html {
 	html { font-size:1.5rem; }
 }
 @media (min-width:1500px){
-	html { font-size:2rem; }
+	html { font-size:1.75rem; }
 }
 
 body, div, table, tr, td {
@@ -144,7 +144,7 @@ td {
 	right:0;
 	//background-color:#000000;
 	//box-shadow:0px 8px #000000;
-	margin-bottom:4rem;
+	margin-bottom:3rem;
 }
 
 .logo {
@@ -160,7 +160,7 @@ td {
 	padding:0;
 	border:0;
 	margin:0;
-	top:5rem;
+	top:8rem;
 	left:0;
 	z-index:3;
 	width:100%;
@@ -212,7 +212,7 @@ td {
 .intro {
 	font-size:2.5rem;
 	line-height:2.5rem;
-	padding:8rem;
-	padding-top:4rem;
-	padding-bottom:2rem;
+	padding:6rem;
+	padding-top:1rem;
+	padding-bottom:1rem;
 }

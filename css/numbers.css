@@ -1,7 +1,7 @@
 #state {
 	padding:1rem;
-	padding-top:1rem;
-	padding-bottom:3rem;
+	padding-top:0rem;
+	padding-bottom:2rem;
 	width:100%;
 	//border:2px solid yellow;
 }
@@ -73,7 +73,7 @@
 }
 
 #number-input-field {
-	font-size: 4rem;
+	font-size: 3rem;
 	font-weight:normal;
 	font-family:monospace;
 	//background:#cceaf5;
@@ -86,7 +86,7 @@
 }
 
 #number-solution input {
-	font-size: 4rem;
+	font-size: 3rem;
 	font-weight:normal;
 	font-family:monospace;
 	//background:#cceaf5;
@@ -114,20 +114,9 @@
 	text-align:center;
 }
 
-#xsolve-button {
-	font-weight:bold;
-	background:#c0c0c0;
-	color:#0a2129;
-	border:0;
-	padding:0.1rem;
-	padding-left:3rem;
-	padding-right:3rem;
-	text-align:center;
-}
-
 .scoreboard {
-	padding-top:3rem;
-	padding-bottom:3rem;
+	padding-top:0rem;
+	padding-bottom:1rem;
 }
 
 .scoreboard td {
