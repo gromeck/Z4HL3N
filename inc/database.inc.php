@@ -95,4 +95,50 @@ function db_user_authenticate($username,$password)
 	return $row;
 }
 
+/*
+**	=========================================================
+**
+**	P L A Y E R S
+**
+**	=========================================================
+*/
+
+/*
+**	store result
+*/
+function db_score_store($name,$numbers,$time)
+{
+	if (!db_query("INSERT INTO Scores (Name,Numbers,Time,Timestamp) VALUES ('".$name."',".$numbers.",".((int) $time).",NOW());"))
+		return false;
+	return true;
+}
+
+/*
+**	get the list of players ordered by the 
+*/
+function db_score_clear()
+{
+	$result = db_query("DELETE FROM Scores;");
+	return $result;
+}
+
+/*
+**	get the list of players ordered by the 
+*/
+function db_score_list()
+{
+	$result = db_query("SELECT *,Numbers * 1000 / Time AS Ranking FROM Scores ORDER BY Numbers DESC, Time ASC LIMIT 20;");
+
+	if (!$result)
+		return false;
+
+    $records = array();
+    while ($row = $result->fetch_assoc()) {
+        $records[] = $row;
+    }
+    $result->free();
+
+	return $records;
+}
+
 ?>
