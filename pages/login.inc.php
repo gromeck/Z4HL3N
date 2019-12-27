@@ -62,11 +62,11 @@ function clickedCancel()
 <form name=loginform method=post>
 	<tr>
 		<td class=bigtext>Benutzername:</td>
-		<td><input name=username id=username type=text tabindex=1></td>
+		<td><input name=username id=username type=text tabindex=1 autocomplete=off></td>
 	</tr>
 	<tr>
 		<td class=bigtext>Kennwort:</td>
-		<td><input name=password id=password type=password tabindex=2></td>
+		<td><input name=password id=password type=password tabindex=2 autocomplete=off></td>
 	</tr>
 	<tr>
 		<td></td>
