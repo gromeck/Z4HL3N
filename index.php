@@ -23,7 +23,9 @@ $pages = array(
 	'start' =>		   		array( 'title' => '',		'show' => 1, 'admin' => 1, 'separator' => 0 ),
 	'login' =>		   		array( 'title' => 'Login',				'show' => 0, 'admin' => 0, 'separator' => 0 ),
 	'admin-settings' =>	   	array( 'title' => 'Einstellungen',		'show' => 1, 'admin' => 1, 'separator' => 0 ),
-	'play' =>				array( 'title' => '',	'show' => 1, 'admin' => 0, 'separator' => 0, 'button' => 'Los geht\'s!', ),
+	'play' =>				array( 'title' => '',	'show' => 0, 'admin' => 0, 'separator' => 0, 'button' => 'Los geht\'s!', ),
+	'name' =>				array( 'title' => '',	'show' => 1, 'admin' => 0, 'separator' => 0, 'button' => 'Los geht\'s!', ),
+	'scoreboard' =>			array( 'title' => '',	'show' => 1, 'admin' => 0, 'separator' => 0, 'button' => 'Rangliste', ),
 );
 
 /*
