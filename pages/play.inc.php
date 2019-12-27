@@ -6,7 +6,7 @@
 /*
 **	get a bunch of numbers --  one number per two seconds should be ok ;-)
 */
-$numbers = Numbers::getNumbers(__TIME_TO_PLAY__ / 2);
+$numbers = Numbers::getNumbers(__NUMBERS_TO_PLAY__);
 
 /*
 **	get the aprameters
@@ -23,9 +23,9 @@ var _state = "init",_score = 0,_numidx = 0;
 var _color_secs;
 var _timer;
 var _timer_stopped;
-var _time_left;
+var _time;
 
-const TIME_TO_PLAY = <?php print __TIME_TO_PLAY__ ?>;
+const NUMBERS_TO_PLAY = <?php print __NUMBERS_TO_PLAY__ ?>;
 const TIME_LAST_SECS = 10;
 const COLOR_SECONDS = COLOR_FOREGROUND;
 const COLOR_LAST_SECONDS = 'red';
@@ -49,17 +49,14 @@ $( document ).ready(function() {
 */
 function timer_init(seconds)
 {
-	_time_left = seconds * MILLISECONDS_PER_SECOND;
+	_time = 0;
 	_timer_stopped = 1;
 	timer_display();
 }
 
 function timer_tick()
 {
-	if ((_time_left -= MILLISECONDS_PER_TICK) <= 0) {
-		timer_stop();
-		timer_timeout();
-	}
+	_time += MILLISECONDS_PER_TICK;
 	timer_display();
 }
 
@@ -97,10 +94,20 @@ function timer_timeout()
 {
 	clearInterval(_timer);
 	$('#state-time-seconds').css('visibility','visible');
-	_time_left = 0;
+	_time = 0;
 	timer_display();
 	_state = 'timeout';
 	clicked();
+}
+
+/*
+**	convert msecs to human readable seconds with tenth of a second
+*/
+function time_format(msecs)
+{
+	var seconds = msecs / MILLISECONDS_PER_SECOND;
+	seconds = seconds.toFixed(1);
+	return seconds.toString() + 's';
 }
 
 /*
@@ -108,9 +115,8 @@ function timer_timeout()
 */
 function timer_display()
 {
-	var seconds = _time_left / MILLISECONDS_PER_SECOND * MILLISECONDS_PER_TICK / MILLISECONDS_PER_TICK;
-	$('#state-time-seconds').css('color',(_time_left / MILLISECONDS_PER_SECOND <= TIME_LAST_SECS) ? COLOR_LAST_SECONDS : COLOR_SECONDS);
-	$('#state-time-seconds').text(seconds.toFixed(1) + "s");
+	//$('#state-time-seconds').css('color',(PLAY_BY_TIME && _time / MILLISECONDS_PER_SECOND <= TIME_LAST_SECS) ? COLOR_LAST_SECONDS : COLOR_SECONDS);
+	$('#state-time-seconds').text(time_format(_time));
 }
 
 function clicked()
@@ -124,13 +130,14 @@ function clicked()
 			*/
 			_numidx = 0;
 			_score = 0;
-			timer_init(TIME_TO_PLAY);
+			timer_init();
 			$('#number-text-field').html('In diesem Feld erscheinen die ausgeschriebenen Zahlen.');
 			$('#number-input-field').val('');
 			$('#number-solution-field').css('visibility','hidden');
 			$('#solve-text').html('Sobald du bereit bist, drücke <b>Start</b>.');
 			$('#solve-button').val('Start');
 			$('#solve-button').focus();
+			$('#number-text-field').css('visibility','visible');
 			$('#number-input-field').css('visibility','hidden');
 			$("#number-input-field").inputFilter(function(value) { return /^\d*$/.test(value); });
 			$("#number-input-field").prop("readonly",true);
@@ -171,25 +178,35 @@ function clicked()
 				msg = 'Nein, leider falsch. ';
 			}
 			++_numidx;
-			$('#solve-text').html(msg + 'Klicke auf <b>Weiter</b> für die nächste Zahl.');
-			$('#solve-button').val('Weiter');
-			_state = 'waiting to continue';
+			if (_numidx < NUMBERS_TO_PLAY) {
+				$('#solve-text').html(msg + 'Klicke auf <b>Weiter</b> für die nächste Zahl.');
+				$('#solve-button').val('Weiter');
+				_state = 'waiting to continue';
+			}
+			else {
+				$('#solve-text').html(msg + 'Klicke auf <b>Weiter</b> für das Ergebnis.');
+				$('#solve-button').val('Weiter');
+				_state = 'timeout';
+			}
 			break;
 		case 'timeout':
 			/*
 			**	no time left
 			*/
-			$('#solve-button').val('Neustart');
-			$('#solve-text').html('<font color=red>Du hast <b>' + _score + '</b> Zahlen korrekt geschrieben.</font>');
+			$('#solve-button').val('Zeige Rangliste');
+			$('#solve-text').html('<font color=red>Du hast <b>' + _score + '</b> Zahlen in ' + time_format(_time) + ' korrekt geschrieben.</font>');
+			$('#number-input-field').val('');
+			$('#number-text-field').css('visibility','hidden');
 			$('#number-solution-field').css('visibility','hidden');
 			$('#number-input-field').css('visibility','hidden');
 			_state = 'reload';
+			storeResult(_score,_time);
 			break;
 		case 'reload':
 			/*
 			**	reload the page to get new numbers
 			*/
-			location.reload();
+			document.location = '?page=scoreboard';
 			break;
 		default:
 			$('#solve-button').val('Neustart');
@@ -200,6 +217,15 @@ function clicked()
 			break;
 	}
 	$('#state-score-points').text(_score + '/' + _numidx);
+}
+
+function storeResult(numbers,time)
+{
+	//alert('storeResult: numbers=' + numbers + ' time=' + time);
+	$.get('ajax/store-result.php?numbers=' + (numbers) + '&time=' + (time), function(data) {
+			//$( ".result" ).html( data );
+			//alert("Punkte gespeichert." );
+		});
 }
 
 /*
@@ -234,16 +260,13 @@ $(document).keypress(function(event) {
 </script>
 
 <div>
-	<div id=state>
-		<div id=state-time>
-			<div id=state-time-label>Zeit:</div>
-			<div id=state-time-seconds>0</div>
-		</div>
-		<div id=state-score>
-			<div id=state-score-label>Richtige Lösungen:</div>
-			<div id=state-score-points>0/0</div>
-		</div>
-	</div>
+	<table id=state>
+		<tr>
+			<td id=state-time><span id=state-time-label>Zeit:</span><span id=state-time-seconds>0</span></td>
+			<td id=state-player><span id=state-player-label>Spieler:</span><span id=state-player-name><?php print $_SESSION['name'] ?></span></td>
+			<td id=state-score><span id=state-score-label>Richtige Lösungen:</span><span id=state-score-points>0</span></td>
+		</tr>
+	</table>
 	<div id=number-text-field>
 	</div>
 	<div id=number-solution>
@@ -254,7 +277,7 @@ $(document).keypress(function(event) {
 	</div>
 	<div id=solve>
 		<div id=solve-text></div>
-		<input id=solve-button type=button value="Button" onclick="clicked()">
+		<input id=solve-button class=button type=button value="Button" onclick="clicked()">
 	</div>
 </div>
 <?php
