@@ -1,49 +1,67 @@
 #state {
-	display:block;
-	font-size: 1rem;
+	padding:1rem;
+	padding-top:1rem;
+	padding-bottom:3rem;
+	width:100%;
+	//border:2px solid yellow;
+}
+#state td {
+	font-size: 2rem;
 	font-weight:normal;
 	font-family:sans-serif,arial;
-	padding:1rem;
-	padding-top:3rem;
-	padding-bottom:3rem;
 }
 
 #state-time {
-	display:content;
-//	border:1px solid green;
+	width:30%;
+	text-align:left;
+	//border:1px solid green;
 }
 
 #state-time-label {
-	float:left;
-//	border:1px solid blue;
-	font-family:monospace;
+	//border:1px solid blue;
 }
 
 #state-time-seconds {
-	float:left;
 	padding-left:0.5rem;
-//	border:1px solid red;
+	//border:1px solid red;
 	font-family:monospace;
 }
 
+#state-player {
+	width:30%;
+	text-align:center;
+	//border:1px solid green;
+}
+
+#state-player-label {
+	text-align:right;
+	//border:1px solid blue;
+}
+
+#state-player-name {
+	text-align:left;
+	padding-left:0.5rem;
+	//border:1px solid red;
+}
+
 #state-score {
-	float:right;
-//	border:1px solid green;
+	text-align:right;
+	width:30%;
+	//border:1px solid green;
 }
 
 #state-score-label {
-	float:left;
-//	border:1px solid blue;
+	//border:1px solid blue;
+	text-align:right;
 }
 
 #state-score-points {
-	float:left;
 	padding-left:0.5rem;
-//	border:1px solid red;
+	//border:1px solid red;
 }
 
 #number-text-field {
-	font-size: 1.5rem;
+	font-size:2.5rem;
 	font-weight:normal;
 	background:#cceaf5;
 	color:#0a2129;
@@ -55,7 +73,7 @@
 }
 
 #number-input-field {
-	font-size: 2rem;
+	font-size: 4rem;
 	font-weight:normal;
 	font-family:monospace;
 	//background:#cceaf5;
@@ -68,7 +86,7 @@
 }
 
 #number-solution input {
-	font-size: 2rem;
+	font-size: 4rem;
 	font-weight:normal;
 	font-family:monospace;
 	//background:#cceaf5;
@@ -91,11 +109,12 @@
 
 #solve-text {
 	font-weight:normal;
+	font-size:2rem;
 	padding:0.5rem;
 	text-align:center;
 }
 
-#solve-button {
+#xsolve-button {
 	font-weight:bold;
 	background:#c0c0c0;
 	color:#0a2129;
@@ -104,4 +123,27 @@
 	padding-left:3rem;
 	padding-right:3rem;
 	text-align:center;
+}
+
+.scoreboard {
+	padding-top:3rem;
+	padding-bottom:3rem;
+}
+
+.scoreboard td {
+	font-size: 2rem;
+	padding:0.3rem;
+	padding-left:2rem;
+	padding-right:2rem;
+}
+.scoreboard thead td {
+	background:#cceaf5;
+	color:#0a2129;
+	font-weight:bold;
+}
+.scoreboard .score-rank, .scoreboard .score-numbers, .scoreboard .score-time, .scoreboard .score-timestamp {
+	text-align:center;
+}
+.scoreboard table {
+	padding-bottom:2rem;
 }

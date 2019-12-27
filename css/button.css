@@ -2,12 +2,14 @@
 	border:0.07rem solid #0a2129;
 	background:#cceaf5;
 	padding:0.25rem;
+	padding-left:2rem;
+	padding-right:2rem;
 	margin:0.25rem;
 	-moz-border-radius:0.25rem 0.25rem 0.25rem 0.25rem;
 	border-radius:0.25rem 0.25rem 0.25rem 0.25rem;
 	box-shadow: rgba(0,0,0,0.2) 2px 3px 4px, inset rgba(255,255,255,0.7) 0 0 5px;
 	color:#0a2129;
-	font-size:1.2rem;
+	font-size:2rem;
 	font-weight:bold;
 	cursor:pointer;
 	display:inline-block;
