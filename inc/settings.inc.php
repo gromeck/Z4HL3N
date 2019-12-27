@@ -21,7 +21,7 @@ include_once 'database.inc.php';
 **	set the defaults
 */
 $settings = array(
-	array( 'Name' => 'TIME_TO_PLAY',  'Title' => 'Dauer des Spiels',   'Value' => 100, 'Units' => 's' ),
+	array( 'Name' => 'NUMBERS_TO_PLAY',  'Title' => 'Spiel auf Ziel: Anzahl Zahlen',   'Value' => 10, 'Units' => 'Zahlen' ),
 );
 
 /*
