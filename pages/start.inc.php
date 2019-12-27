@@ -9,7 +9,7 @@
 	<p>
 	Jeder korrekte Versuch wird gezählt.
 	<p>
-	Wieviele Zahlen schaffst du in <?php print __TIME_TO_PLAY__ ?> Sekunden?
+	Wie lange brauchst Du für <?php print __NUMBERS_TO_PLAY__ ?> Zahlen?
 	<p>
 	Viel Spaß!
 </div>
