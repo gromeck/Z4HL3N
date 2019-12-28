@@ -26,6 +26,7 @@ var _timer_stopped;
 var _time;
 
 const NUMBERS_TO_PLAY = <?php print __NUMBERS_TO_PLAY__ ?>;
+const TIME_LIMIT = <?php print __TIME_LIMIT__ ?>;
 const TIME_LAST_SECS = 10;
 const COLOR_SECONDS = COLOR_FOREGROUND;
 const COLOR_LAST_SECONDS = 'red';
@@ -57,6 +58,11 @@ function timer_init(seconds)
 function timer_tick()
 {
 	_time += MILLISECONDS_PER_TICK;
+	if (_time / MILLISECONDS_PER_SECOND >= TIME_LIMIT) {
+		timer_stop();
+		_state = 'timeout';
+		clicked();
+	}
 	timer_display();
 }
 
@@ -115,7 +121,7 @@ function time_format(msecs)
 */
 function timer_display()
 {
-	//$('#state-time-seconds').css('color',(PLAY_BY_TIME && _time / MILLISECONDS_PER_SECOND <= TIME_LAST_SECS) ? COLOR_LAST_SECONDS : COLOR_SECONDS);
+	$('#state-time-seconds').css('color',(_time / MILLISECONDS_PER_SECOND >= TIME_LIMIT - TIME_LAST_SECS) ? COLOR_LAST_SECONDS : COLOR_SECONDS);
 	$('#state-time-seconds').text(time_format(_time));
 }
 
