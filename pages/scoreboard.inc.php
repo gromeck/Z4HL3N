@@ -34,7 +34,7 @@ $list = db_score_list();
 						<td class=score-rank><?php print $n + 1 ?></td>
 						<td class=score-name><?php print $list[$n]['Name'] ?></td>
 						<td class=score-numbers><?php print $list[$n]['Numbers'] ?></td>
-						<td class=score-time><?php printf("%.1f",$list[$n]['Time'] / 1000) ?></td>
+						<td class=score-time><?php printf("%.1f",$list[$n]['Time'] / 1000) ?>s</td>
 						<td class=score-timestamp><?php print $list[$n]['Timestamp'] ?></td>
 					</tr>
 				<?php
